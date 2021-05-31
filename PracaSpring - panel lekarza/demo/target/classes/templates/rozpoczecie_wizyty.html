@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Rozpocznij wizyte</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+    <div><h1>Twoje oczekujace wizyty</h1></div>
+    <div>
+        <h3><a th:href="@{/startpage}">Powrot</a></h3>
+
+
+
+    </div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID wizyty</th>
+                <th>Termin</th>
+                <th>Godzina</th>
+                <th>Pacjent</th>
+                <th>Akcje</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="wizyty: ${wizytyList}">
+                <td th:text="${wizyty.id}">Numer wizyty</td>
+                <td th:text="${wizyty.termin}">Termin wizyty</td>
+                <td th:text="${wizyty.godzina}">Godzina wizyty</td>
+                <td th:text="${wizyty.pacjent}">Pacjent</td>
+                <td> <a th:href="@{'/okno-wizyty/'+${wizyty.id}}">Rozpocznij wizyte</a> </td>
+                <!--<td> <a th:href="@{/okno-wizyty(id=${wizyty.id})}">Rozpocznij wizyte</a> </td>-->
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

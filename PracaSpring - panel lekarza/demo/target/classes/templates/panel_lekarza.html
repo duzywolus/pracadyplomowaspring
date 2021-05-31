@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Lista uzytkownikow</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+    <div><h1>Panel lekarza Medimed</h1></div>
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <p>
+                Witaj <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+            </p>
+            <input type="submit" value="Wyloguj"/>
+        </form>
+    </div>
+    </div>
+
+<div class="container text-center">
+
+    <h3><a th:href="@{/pacjent_list}">Lista pacjentow</a></h3>
+    <h3><a th:href="@{/visit_register}">Dodawanie terminow wizyt</a></h3>
+    <h3><a th:href="@{/your_created_visits}">Twoje dodane wizyty</a></h3>
+    <h3><a th:href="@{/rozpocznij_wizyte}">Rozpoczecie wizyty</a></h3>
+    <h3><a th:href="@{/patient_history}">Historia wizyt pacjenta</a></h3>
+    <h3><a th:href="@{/your_visit_history}">Historia Twoich wizyt</a> </h3>
+</div>
+
+</div>
+
+</body>
+</html>

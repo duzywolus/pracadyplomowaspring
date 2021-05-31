@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Okno wizyty</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <h1>Okno wizyty</h1>
+        <h4><a th:href="@{/rozpocznij_wizyte}">Powrot</a></h4>
+    </div>
+    <form class="pure-form pure-form-stacked" method="post" th:object="${znajdzwizyte}"
+           style="max-width: 600px; margin: 0 auto;">
+        <fieldset>
+        <div class="m-3">
+
+            <div class="form-group row">
+                <div class="col-8">
+                    <input type="hidden" th:field="*{termin}" name="termin" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Symptomy: </label>
+                <div class="col-8">
+
+                    <input type="text" th:field="*{symptomy}" name="symptomy" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Diagnoza: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{diagnoza}" name="diagnoza" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Zalecenia: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{zalecenia}" name="zalecenia" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8">
+                    <input type="hidden" th:field="*{id}" name="id" class="form-control"/>
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <div class="col-8">
+                    <input type="hidden" th:field="*{lekarz}" name="lekarz" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8">
+                    <input type="hidden" th:field="*{pacjent}" name="pacjent" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8">
+                    <input type="hidden" th:field="*{godzina}" name="godzina" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8">
+                    <input type="hidden" th:field="*{rodzaj}" name="rodzaj" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8">
+                    <input type="hidden" th:field="*{status}" name="status" value="zakonczona" class="form-control"/>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <h3><a th:href="@{'/visit_completed/'+${znajdzwizyte.id}}">Zakoncz wizyte</a></h3>
+            </div>
+            <div class="form-group row"><button type="reset" class="btn btn-primary">Wyczysc</button></div>
+        </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

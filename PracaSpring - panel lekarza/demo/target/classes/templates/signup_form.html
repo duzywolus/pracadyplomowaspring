@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja lekarza</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <h1>Strona rejestracji Medimed</h1>
+    </div>
+    <form class="pure-form pure-form-stacked" th:action="@{/process_register}" th:object="${lekarz}"
+          method="post" style="max-width: 600px; margin: 0 auto;">
+        <fieldset>
+        <div class="m-3">
+            <div class="form-group row">
+                <label class="col-4 col-form-label">E-mail: </label>
+                <div class="col-8">
+                    <input type="email" th:field="*{emailLekarz}" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Haslo: </label>
+                <div class="col-8">
+                    <input type="password" th:field="*{hasloLekarz}" class="form-control"
+                           required minlength="6" maxlength="10"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Imie: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{imieLekarz}" class="form-control"
+                           required minlength="2" maxlength="20"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Nazwisko: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{nazwiskoLekarz}" class="form-control"
+                           required minlength="2" maxlength="20" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Specjalizacja: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{specjalizacja}" class="form-control"
+                           required minlength="2" maxlength="20"/>
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Numer telefonu: </label>
+                <div class="col-8">
+                    <input type="text" th:field="*{telefonLekarz}" class="form-control"
+                           required minlength="2" maxlength="20"/>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <button type="submit" class="btn btn-primary">Zarejestruj</button>
+            </div>
+            <div class="form-group row"><button type="reset" class="btn btn-primary">Wyczysc</button></div>
+        </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>
